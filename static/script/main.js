@@ -1,68 +1,65 @@
-class jugador {
-    constructor(nombre){
-        this.nombre = nombre 
-        this.puntaje = 0;
-    }
-}
-
 let pregs = []
 
-// Creo que una funcion que recibirá por parámetro la información de la Base de Datos.
-function crear_preguntas(preguntas, correctas, incorrectas1, incorrectas2, incorrectas3)
-  for(let i; i < preguntas.length; i++) {
-    pregs.push({
-      pregunta : preguntas[i],
-      correcta : correctas[i],
-      inc1 : incorrectas1[i],
-      inc2 : incorrectas2[i],
-      inc3 : incorrectas3[i]
-    })
+function crear_preguntas(preguntas, correctas, incorrectas1, incorrectas2, incorrectas3){
+  if(pregs.length < 10){
+    for(let i = 0; i < 10; i++){
+      pregs.push(
+          {
+              pregunta : preguntas[i],
+              correcta : correctas[i],
+              inc1 : incorrectas1[i],
+              inc2 : incorrectas2[i],
+              inc3 : incorrectas3[i]
+          }
+      )
+    }
   }
-
-
-
-
-for(let i = 0; i < 3; i++){
-    pregs.push(
-        {
-            pregunta : ("Pregunta " + String(i+1)),
-            correcta : "Respuesta Correcta",
-            inc1 : "Respuesta Incorrecta",
-            inc2 : "Respuesta Incorrecta 2",
-            inc3 : "Respuesta Incorrecta 3"
-    
-        }
-    )
 }
 
 var preg_num = 0
+var time
 
 function juego() {
-    preg_num = 0
+    time = true;
     document.getElementById("info").style.display = "none";
     document.getElementById("quiz").style.display = "flex";
-    
+    let rand = Math.floor(Math.random() * 4);
+    let rand2 = Math.floor(Math.random() * 4);
+    let rand3 = Math.floor(Math.random() * 4);
+    let rand4 = Math.floor(Math.random() * 4);
     document.getElementById("quiz").innerHTML = `
     <div class="pregunta">
         <h1>${pregs[preg_num].pregunta}</h1>
     </div>
-    <div class="respuesta" onclick="correcta(), desbloquear()">
+    <div class="respuesta cor" style="order:${rand}" onclick="correcta(), desbloquear()">
         <h2>${pregs[preg_num].correcta}</h2>
     </div>
-    <div class="respuesta" onclick="desbloquear()">
+    <div class="respuesta inc" style="order:${rand2}" onclick="desbloquear()">
         <h2>${pregs[preg_num].inc1}</h2>
     </div>
-    <div class="respuesta" onclick="desbloquear()">
+    <div class="respuesta inc" style="order:${rand3}" onclick="desbloquear()">
         <h2>${pregs[preg_num].inc2}</h2>
     </div>
-    <div class="respuesta" onclick="desbloquear()">
+    <div class="respuesta inc" style="order:${rand4}" onclick="desbloquear()">
         <h2>${pregs[preg_num].inc3}</h2>
     </div>
-    <div class="contenedor-botones" id="cont-botones">
-        <div class="w-50 d-flex justify-content-center">
-            <button class="boton" onclick="abandonar()">Abandonar</button>
-        </div>
+    <div class="contenedor-botones" style="order:4" id="cont-botones">
+        <button class="boton" onclick="abandonar()">Abandonar</button>
+    </div>
+    <div class="tiempo" style="order:4" id="tiempo">
     </div>`
+
+  var count = 20;
+  var interval = setInterval(function(){
+    document.getElementById('tiempo').innerHTML=count;
+    count--;
+    if (count === -2 || time == false){
+      desbloquear();
+      clearInterval(interval);
+      document.getElementById('tiempo').innerHTML='Finalizado';
+    }
+  }, 1000);
+  
 }
 
 var click = 0;
@@ -71,25 +68,33 @@ function abandonar() {
     document.getElementById("info").style.display = "flex";
     document.getElementById("quiz").style.display = "none";
     usuario = ""
+    preg_num = 0;
+    puntaje = 0;
 }
 
+var incorrectas
+var corr
+
 function desbloquear() {
+  incorrectas = document.getElementsByClassName('inc');
+  corr = document.getElementsByClassName('cor');
+  for (let i = 0; i < 3; i++){
+    incorrectas[i].style.background = 'rgba(200, 0, 0, .5)';
+  }
+  corr[0].style.background = 'rgba(0, 200, 0, .5)'
+  time = false;
     if(click == 0){
         if(preg_num != pregs.length - 1){
             document.getElementById("cont-botones").innerHTML += `
-            <div class="w-50 d-flex justify-content-center">
-                <button class="boton" onclick="siguiente()">Siguiente Pregunta</button>
-            </div>`
-            click += 1;
+
+          <button class="boton" onclick="siguiente()">Siguiente Pregunta</button>`
+          click += 1;
         }else if(preg_num == pregs.length -1){
             document.getElementById("cont-botones").innerHTML += `
-            <div class="w-50 d-flex justify-content-center">
-                <button class="boton" onclick="finalizar()">Finalizar Quiz</button>
-            </div>`
+            <button class="boton" onclick="finalizar()">Finalizar Quiz</button>`
             click += 1
         }  
     }
-
 }
 
 function correcta(){
@@ -102,106 +107,13 @@ function correcta(){
 function siguiente(){
     click = 0;
     preg_num += 1;
-    let rand = Math.floor(Math.random() * 4)
-    switch(rand){
-        case 0:
-            document.getElementById("quiz").innerHTML = `
-            <div class="pregunta">
-                <h1>${pregs[preg_num].pregunta}</h1>
-            </div>
-            <div class="respuesta" onclick="correcta(), desbloquear()">
-                <h2>${pregs[preg_num].correcta}</h2>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc1}</h2>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc2}</h2>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc3}</h2>
-            </div>
-            <div class="contenedor-botones" id="cont-botones">
-                <div class="w-50 d-flex justify-content-center">
-                    <button class="boton" onclick="abandonar()">Abandonar</button>
-                </div>
-            </div>`
-            break;
-        case 1:
-            document.getElementById("quiz").innerHTML = `
-            <div class="pregunta">
-                <h1>${pregs[preg_num].pregunta}</h1>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc1}</h2>
-            </div>
-            <div class="respuesta" onclick="correcta(), desbloquear()">
-                <h2>${pregs[preg_num].correcta}</h2>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc2}</h2>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc3}</h2>
-            </div>
-            <div class="contenedor-botones" id="cont-botones">
-                <div class="w-50 d-flex justify-content-center">
-                    <button class="boton" onclick="abandonar()">Abandonar</button>
-                </div>
-            </div>`
-            break;
-        case 2:
-            document.getElementById("quiz").innerHTML = `
-            <div class="pregunta">
-                <h1>${pregs[preg_num].pregunta}</h1>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc1}</h2>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc2}</h2>
-            </div>
-            <div class="respuesta" onclick="correcta(), desbloquear()">
-                <h2>${pregs[preg_num].correcta}</h2>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc3}</h2>
-            </div>
-            <div class="contenedor-botones" id="cont-botones">
-                <div class="w-50 d-flex justify-content-center">
-                    <button class="boton" onclick="abandonar()">Abandonar</button>
-                </div>
-            </div>`
-            break;
-        case 3:
-            document.getElementById("quiz").innerHTML = `
-            <div class="pregunta">
-                <h1>${pregs[preg_num].pregunta}</h1>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc1}</h2>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc2}</h2>
-            </div>
-            <div class="respuesta" onclick="desbloquear()">
-                <h2>${pregs[preg_num].inc3}</h2>
-            </div>
-            <div class="respuesta" onclick="correcta(), desbloquear()">
-                <h2>${pregs[preg_num].correcta}</h2>
-            </div>
-            <div class="contenedor-botones" id="cont-botones">
-                <div class="w-50 d-flex justify-content-center">
-                    <button class="boton" onclick="abandonar()">Abandonar</button>
-                </div>
-            </div>`
-            break;
-    }
+    juego();
 }
 
 function finalizar() {
     click = 0;
-    preg_num += 1;
+    preg_num = 0;
+    time = false;
     if (usuario != ""){
         document.getElementById("quiz").innerHTML = `
         <style>
@@ -238,12 +150,32 @@ function finalizar() {
                 justify-content: center;
                 align-items: center;
             }
-
-            table, th {
-                border: 1px solid black;
-            }
         </style>
         <h1>Puntaje: ${puntaje}</h1>
+        <div class="contenedor-botones" style="order:4" id="cont-botones">
+            <button class="boton" onclick="abandonar()">Volver</button>
+        </div>
         `
     }
+  puntaje = 0;
+}
+
+function login(){
+  if (usuario == ""){
+    document.getElementById("info").style.display = "none";
+    document.getElementById("quiz").style.display = "flex";
+    document.getElementById("quiz").innerHTML =`
+    <form>
+      <label for="usuario">Ingrese Usuario: </label>
+      <input type="text" class="usuario" id="usuario" placeholder="Usuario">
+      <label for="contraseña">Ingrese su Contraseña: </label>
+      <input type="text" class="usuario" id="contraseña" placeholder="Contraseña">
+      <input type="submit" class="boton-entrar" value="Entrar">
+    </form>
+    <h2>Si no tenes cuenta, registrate</h2>
+    <div class="boton-entrar" href="templates/registrarse">Registrarse</div>
+    `
+    usuario = document.getElementById("usuario").value;
+    password = document.getElementById("contraseña").value;
+  }
 }

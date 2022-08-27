@@ -1,3 +1,16 @@
+html, body{
+  height: 100vh !important;
+  width: 100vw;
+}
+
+h1, .pregunta{
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 25px;
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+
 main h1{
     text-align: center;
 }
@@ -17,13 +30,13 @@ main h1{
     padding: 15px 0px;
 }
 
-.quiz {
+.quiz{
     width: 80%;
     margin: auto;
     display: none;
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 90%;
+    height: calc(100% - 70px);
     box-sizing: border-box;
     padding: 5% 15%;
 }
@@ -45,17 +58,14 @@ main h1{
     box-sizing: border-box;
     padding: 20px;
     transition: all .3s ease-in;
+    margin-bottom: 8px;
 }
 
 .quiz .respuesta h2 {
-    color: red;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .quiz .respuesta:hover {
-    border: 2px solid grey;
-    background-color: black;
-    color: grey;
     cursor: pointer;
 }
 
@@ -100,12 +110,36 @@ input:focus {
 }
 
 .contenedor-botones .boton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    background-color: rgba(255,255,255,.1);
-    border: 2px solid #480db6;
-    width: 120px;
-    height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: rgba(255,255,255,.1);
+  border: 2px solid #480db6;
+  width: 120px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.usuario {
+  width: 140px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.boton-entrar {
+  width: 140px;
+  height: 20px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all .3s ease-in;
+  margin-top: 10px;
+  margin-left: 270px;
+}
+
+.boton-entrar:hover {
+  background-color: #d0cdcd;
+  cursor: pointer;
 }

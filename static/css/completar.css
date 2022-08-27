@@ -1,0 +1,23 @@
+.flex {
+  width: 60%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 25vh;
+}
+
+.flex .pregunta {
+  margin-top: 20px;
+}
+
+.flex .respuesta {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.flex .respuesta input {
+  padding: 20px 25px;
+}

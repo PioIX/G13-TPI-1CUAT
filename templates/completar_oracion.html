@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Completar la Frase</title>
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="static/css/quiz.css">
+<link rel="stylesheet" href="static/css/completar.css">
+{% endblock %}
+{% block contenido %}
+<main class="quiz-info" id="info">
+  <span class="titulo">Completa La Frase</span>
+  <p>Completa con lo que sabes la frase que aparezca en la pantalla. En este juego hay un total de 10 frases para completar, con un tiempo de 20 segundos cada una. Completar en minúscula y sin tildes.</p>
+  <p>Si quiere puede ingresar su nombre para que su puntaje se almacene en la Tabla de Puntajes. Si no quiere que se guarden sus datos, puede darle al boton "Permanecer anonimo"</p>
+  <div class="contenedor-botones">
+      <button class="boton" onclick="crear_preguntas({{oracionCF}}, {{respuestaCF}}), juego()">Jugar</button>
+  </div>
+</main>
+<main class="CF" id="CF">
+        
+</main>
+<script src="static/script/cf.js"></script>
+{% endblock %}

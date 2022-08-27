@@ -12,13 +12,18 @@ body {
     background: linear-gradient(to bottom, #480db6, #0E0068);
 }
 
-h1, h2 {
+h1, h2, .titulo{
     font-family: 'Press Start 2P', cursive;
     text-align: center;
 }
 
-h1 {
+h1, .titulo{
     font-size: 50px;
+}
+
+p{
+  font-size: 20px;
+  text-align: justify;
 }
 
 header {
@@ -44,4 +49,15 @@ header nav ul {
 header nav ul a {
     text-decoration: none;
     font-size: 20px;
+}
+header nav ul a i {
+  font-size: 17px;
+}
+.tiempo {
+  margin: 20px auto;
+  height: 45px;
+  width: 30%;
+  background: rgba(0, 0, 0, .25);
+  text-align: center;
+  font-size: 30px;
 }

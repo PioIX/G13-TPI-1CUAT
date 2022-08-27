@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Registrarse</title>
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="static/css/registrarse.css">
+{% endblock %}
+{% block contenido %}
+<main class="contenido" id="contenido">
+<h1 class="titulo">CREAR NUEVA CUENTA</h1>
+  <form method="POST" action="{{url_for('crear_nueva_cuenta')}}">
+    <div class="fila">
+      <label for="usuario">Ingrese su Usuario: </label>
+      <input name="usuario" type="text" class="usuario" id="usuario" placeholder="Usuario" autofocus>
+    </div>
+    <div class="fila">
+      <label for="contraseña">Ingrese su Contraseña: </label>
+      <input name="contraseña" type="password" class="usuario" id="contraseña" placeholder="Contraseña">
+    </div>
+    <div class="fila">
+      <input type="submit" class="boton" value="Entrar" onclick="ingresar()"> <!-- llevarlo a la pagina principal despues de esto -->
+    </div>
+  </form>
+</main>
+<script src="static/script/registrarse.js"></script>
+{% endblock %}
