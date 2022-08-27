@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Ranking</title>
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="static/css/ranking.css">
+{% endblock %}
+{% block contenido %}
+<h1 class="titulo">RANKING</h1>
+<main class="tabla">
+  <table>
+    <th>Posición</th>
+      {{ data }}
+    <th>Nombre</th>
+    <th>Puntaje</th>
+  </table>
+</main>
+{% endblock %}

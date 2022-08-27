@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>T1 - Juega</title>
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="static/css/juega.css">
+{% endblock %}
+{% block contenido %}
+<main>
+    <span class="titulo">{{correctas}}</span>
+  
+    <div class="carrusel">
+        <div class="contenedor-imagenes" id="contenedor-imagenes">
+            <a href="quiz" onclick=""><img src="static/img/quiz.png" alt=""></a>
+            <a href="verdadero_o_falso"><img src="static/img/VoF.png" alt="Verdadero o Falso"></a>
+            <a href="completar_oracion" onclick=""><img src="static/img/completar.png" alt="Completa la Frase"></a>
+        </div>
+        <div class="botones">
+            <button class="izq" onclick="izquierda()"><i class='bx bx-left-arrow-alt'></i></button>
+            <button class="der" onclick="derecha()"><i class='bx bx-right-arrow-alt' ></i></button>
+        </div>
+    </div>
+</main>
+<script src="static/script/carrusel.js"></script>
+<sctipt src="static/script/jugador.js"></sctipt>
+{% endblock %}

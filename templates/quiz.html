@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Quiz</title>
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="static/css/quiz.css">
+{% endblock %}
+{% block contenido %}
+<main class="quiz-info" id="info">
+        <span class="titulo">Quiz</span>
+        <p>Responde el siguiente quiz para poner a prueba los conocimientos adquiridos. Este consta de 10 preguntas relacionadas con los ODS 6 y 14. Tendrá formato de Múltiple Choice, con preguntas de 4 opciones que el jugador tendrá que elegir en 20 segundos por pregunta. </p>
+        <p>Si quiere puede ingresar su nombre para que su puntaje se almacene en la Tabla de Puntajes. Si no quiere que se guarden sus datos, puede darle al boton "Permanecer anonimo"</p>
+        <div class="contenedor-botones">
+            <button class="boton" onclick="crear_preguntas({{preguntas}}, {{correctas}}, {{incorrectas1}}, {{incorrectas2}}, {{incorrectas3}}), juego()">Jugar</button>
+        </div>
+</main>
+    <main class="quiz" id="quiz">
+        
+    </main>
+    <script src="static/script/main.js"></script>
+{% endblock %}
