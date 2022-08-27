@@ -1,0 +1,35 @@
+.contenido {
+  margin: 0 100px;
+}
+.titulo, .subtitulo {
+  margin: 30px 0;
+}
+
+form {
+  width: 300px;
+  height: auto;
+  border: 2px solid #480db6;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px 40px;
+}
+.fila {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.fila .boton {
+  padding: 10px;
+  background-color: #480db6;
+  margin: auto;
+}
+
+.usuario {
+  color: black;
+}
+
+.contraseña {
+  color: black;
+}
+

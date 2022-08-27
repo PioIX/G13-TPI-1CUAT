@@ -1,0 +1,145 @@
+html, body{
+  height: 100vh !important;
+  width: 100vw;
+}
+
+h1, .pregunta{
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 25px;
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+
+main h1{
+    text-align: center;
+}
+
+.quiz-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: justify;
+    align-content: space-around;
+    width: 60%;
+    height: calc(100% - 70px);
+    margin: auto;
+}
+
+.quiz-info button {
+    padding: 15px 0px;
+}
+
+.quiz{
+    width: 80%;
+    margin: auto;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: calc(100% - 70px);
+    box-sizing: border-box;
+    padding: 5% 15%;
+}
+
+.quiz .pregunta {
+    width: 100%;
+    text-align: center;
+}
+
+.quiz .respuesta {
+    width: 40%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 22px;
+    box-sizing: border-box;
+    padding: 20px;
+    transition: all .3s ease-in;
+    margin-bottom: 8px;
+}
+
+.quiz .respuesta h2 {
+    font-size: 12px;
+}
+
+.quiz .respuesta:hover {
+    cursor: pointer;
+}
+
+.quiz .abandonar {
+    height: 80%;
+}
+
+.quiz table {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 26px;
+    width: 100%;
+}
+
+.quiz table thead th {
+    height: 25%;
+    padding: 5px 50px;
+    border: 2px solid black;
+}
+
+.quiz table tbody th {
+    height: 15%;
+    padding: 10px 50px;
+    border: 2px solid black;
+}
+
+p, label {
+    font-size: 20px;
+}
+
+input {
+    color: black;
+}
+
+input:focus {
+    outline: #480db6 solid 2px;
+}
+
+.contenedor-botones {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenedor-botones .boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: rgba(255,255,255,.1);
+  border: 2px solid #480db6;
+  width: 120px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.usuario {
+  width: 140px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.boton-entrar {
+  width: 140px;
+  height: 20px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all .3s ease-in;
+  margin-top: 10px;
+  margin-left: 270px;
+}
+
+.boton-entrar:hover {
+  background-color: #d0cdcd;
+  cursor: pointer;
+}
