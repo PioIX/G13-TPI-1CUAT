@@ -59,8 +59,8 @@ https://replit.com/@FranSchendel/Proyecto-Grupo-13#main.py
 
 ## Índice
 ### Base de Datos:
-Base de Datos/test.db
-https://github.com/PioIX/G13-TPI-1CUAT/tree/main/Base%20de%20Datos 
+
+[Base de Datos/test.db](/tree/main/Base%20de%20Datos) 
 
 ### CSS:
 static/css
