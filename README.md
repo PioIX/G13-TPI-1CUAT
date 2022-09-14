@@ -63,17 +63,16 @@ https://replit.com/@FranSchendel/Proyecto-Grupo-13#main.py
 [Base de Datos/test.db](/tree/main/Base%20de%20Datos) 
 
 ### CSS:
-static/css
-https://github.com/PioIX/G13-TPI-1CUAT/tree/main/static/css
+[static/css](/tree/main/static/css)
 
 ### Imagenes:
-static/img
-https://github.com/PioIX/G13-TPI-1CUAT/tree/main/static/img
+[static/img](/tree/main/static/img)
 
 ### Javascript:
-static/script
-https://github.com/PioIX/G13-TPI-1CUAT/tree/main/static/script
+[static/script](tree/main/static/script)
 
 ### HTML:
-templates
-https://github.com/PioIX/G13-TPI-1CUAT/tree/main/templates
+[templates](/tree/main/templates)
+
+### Link al Python Anywhere:
+[Python Anywhere](http://teodoroalvarez.pythonanywhere.com)
